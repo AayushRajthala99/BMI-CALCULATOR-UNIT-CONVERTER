@@ -2,14 +2,18 @@
 #include<math.h>
 #include<conio.h>
 #include<stdlib.h>
-int I,A,B,C,L,M,T;
-float cm1,m2,km3,M4,g1,kg2,q3,p4,s1,mi2,h3,d4;
-float cm2,cm3,cm4,m1,m3,m4,km1,km2,km4,M1,M2,M3,g2,g3,g4,kg1,kg3,kg4,q1,q2,q4,p1,p2,p3,s2,s3,s4,mi1,mi3,mi4,h1,h2,h4,d1,d2,d3;
-int choice;
+#include<string.h>
+int I,A,B,C,L,M,T,U; //Variables assigned for switch case statements...
+float m,kg,f,i,p,TH,BMI1,BMI2; //Variables assigned for BMI CALCULATOR...
+float cm1,m2,km3,M4,g1,kg2,q3,p4,s1,mi2,h3,d4; //Variables assigned for the Results of UNIT CONVERTER...
+float cm2,cm3,cm4,m1,m3,m4,km1,km2,km4,M1,M2,M3,g2,g3,g4,kg1,kg3,kg4,q1,q2,q4,p1,p2,p3,s2,s3,s4,mi1,mi3,mi4,h1,h2,h4,d1,d2,d3; //Variables assigned for calculation in UNIT CONVERTER...
+int choice;//Variable assigned for exit statement...
+char a;
 char *newusername[25];
 char *newpassword[25];
 char *username[25];
 char *password[25];
+
 int main()
 {
     printf("                            !!! WELCOME TO THE BMI CALCULATOR & UNIT CONVERTER !!!");
@@ -19,6 +23,7 @@ int main()
     printf("                                        3. ACCESS LIBRARY    (PRESS 3)\n");
     printf("                                        4. EXIT THE PROGRAM  (PRESS 4)\n");
     printf("                        \n\n                            !!!SELECT YOUR DESIRED CHOICE FROM THE OPTIONS ABOVE!!!\n");
+    printf("\n                                         ENTER YOUR DECISION : ");
     scanf(" %d",&I);
     if (I==1||I==2||I==3||I==4){
     switch(I)
@@ -30,7 +35,7 @@ int main()
         printf("                                        1. CONVERSION OF LENGTH  (PRESS 1)\n");
         printf("                                        2. CONVERSION OF MASS    (PRESS 2)\n");
         printf("                                        3. CONVERSION OF TIME    (PRESS 3)\n");
-        printf("                                        ENTER YOUR DESIRED OPERATION :");
+        printf("\n                                          ENTER YOUR DESIRED OPERATION :");
         scanf("%d",&A);
         if (A==1||A==2||A==3){
         switch(A)
@@ -40,13 +45,13 @@ int main()
 
             case (1):
             //CONVERSION OF LENGTH
-            printf("\n                                        1. CENTIMETERS   (PRESS 1)\n");
+            checkL:printf("\n                                        1. CENTIMETERS   (PRESS 1)\n");
             printf("                                        2. METERS        (PRESS 2)\n");
             printf("                                        3. KILOMETERS    (PRESS 3)\n");
             printf("                                        4. MILES         (PRESS 4)\n");
             printf("\n                                !!!CHOOSE THE UNIT OF CONVERSION FOR LENGTH!!! :");
             scanf("%d",&L);
-
+            if (L==1||L==2||L==3||L==4){
             switch(L)
 
             {
@@ -95,19 +100,36 @@ int main()
                 break;
 
             }
+            printf("\n                                        Press 'H' = 'Go To Homepage'\n");
+            printf("\n                              Press any other keyword to Exit The Program....\n");
+            printf("\n                                           Enter Your Keyword: ");
+            getchar();
+            a=getchar();
+            if(a=='H'||a=='h')
+            {goto check1;}
+            else
+            {goto No;}
 
             break;
-
-
+            }
+            else if(L!=getchar())
+            {
+            printf("\n");
+            printf("                                                   !!!ERROR!!!");
+            printf("\n                                                !!!WRONG INPUT!!!");
+            printf("\n                                              SELECT YOUR OPTION AGAIN");
+            printf("\n");
+            goto checkL;
+            }
             case (2):
             //CONVERSION OF MASS
-            printf("\n                                        1. GRAMS      (PRESS 1)\n");
+            checkM:printf("\n                                        1. GRAMS      (PRESS 1)\n");
             printf("                                        2. KILOGRAMS  (PRESS 2)\n");
             printf("                                        3. QUINTALS   (PRESS 3)\n");
             printf("                                        4. POUNDS     (PRESS 4)\n");
             printf("\n                                 !!!CHOOSE THE UNIT OF CONVERSION FOR MASS!!! :");
             scanf("%d",&M);
-
+            if (M==1||M==2||M==3||M==4){
             switch(M)
 
             {
@@ -157,18 +179,34 @@ int main()
                 break;
 
             }
-
-            break;
-
+            printf("\n                                        Press 'H' = 'Go To Homepage'\n");
+            printf("\n                              Press any other keyword to Exit The Program....\n");
+            printf("\n                                           Enter Your Keyword: ");
+            getchar();
+            a=getchar();
+            if(a=='H'||a=='h')
+            {goto check1;}
+            else
+            {goto No;}
+            }
+            else if (M!=getchar())
+            {
+            printf("\n");
+            printf("                                                    !!!ERROR!!!");
+            printf("\n                                                 !!!WRONG INPUT!!!");
+            printf("\n                                              SELECT YOUR OPTION AGAIN");
+            printf("\n");
+            goto checkM;
+            }
             case (3):
             //CONVERSION OF TIME
-            printf("\n                                        1. SECONDS      (PRESS 1)\n");
+            checkT:printf("\n                                        1. SECONDS      (PRESS 1)\n");
             printf("                                        2. MINUTES      (PRESS 2)\n");
             printf("                                        3. HOURS        (PRESS 3)\n");
             printf("                                        4. DAYS         (PRESS 4)\n");
             printf("\n                                    !!!CHOOSE THE UNIT OF CONVERSION FOR TIME!!! :");
             scanf("%d",&T);
-
+            if (T==1||T==2||T==3||T==4){
             switch(T)
 
             {
@@ -218,32 +256,127 @@ int main()
             break;
 
             }
-
+            printf("\n                                        Press 'H' = 'Go To Homepage'\n");
+            printf("\n                              Press any other keyword to Exit The Program....\n");
+            printf("\n                                           Enter Your Keyword: ");
+            getchar();
+            a=getchar();
+            if(a=='H'||a=='h')
+            {goto check1;}
+            else
+            {goto No;}
             break;
-
+            }
+            else if(T!=getchar())
+            {
+            printf("\n");
+            printf("                                                  !!!ERROR!!!");
+            printf("\n                                               !!!WRONG INPUT!!!");
+            printf("\n                                            SELECT YOUR OPTION AGAIN");
+            printf("\n");
+            goto checkT;
+            }
         }
 
         break;
 
         }
 
-        else if (A=getchar())
+        else if (A!=getchar())
 
         {
-
-        printf("\n                                            !!!ERROR!!!\n");
-        printf("                                            !!!WRONG INPUT!!!\n");
-        printf("                                        SELECT YOUR OPTION AGAIN\n");
+        printf("\n");
+        printf("\n                                                   !!!ERROR!!!\n");
+        printf("                                                !!!WRONG INPUT!!!\n");
+        printf("                                            SELECT YOUR OPTION AGAIN\n");
         goto check2;
 
         }
 
         case (2):
         //BMI CALCULATOR
-        break;
+        printf("                        \n\n                                      !!!WELCOME TO THE BMI CALCULATOR!!!\n\n");
+        check3:printf("                     \n                                !!!THE AVAILABLE UNITS FOR INPUT ARE AS FOLLOWS!!!\n\n");
+        printf("                               1. MKS(HEIGHT IN METER , MASS IN KILOGRAM) (PRESS 1)\n");
+        printf("                               2. FPS(HEIGHT IN FOOT , MASS IN POUNDS)    (PRESS 2)\n");
+        printf("\n                                          ENTER YOUR DESIRED OPERATION :");
+        scanf("%d",&U);
+        if (U==1||U==2)
+        {
+            switch(U)
+            {
+            case (1):
+                printf("\n\n");
+                printf("\n                                          Enter Height in Meters : ");
+                scanf("%f",&m);
+                printf("\n                                          Enter Weight in Kilograms : ");
+                scanf("%f",&kg);
+                BMI1=((kg)/(m*m));
+                printf("\n                                          Your BMI INDEX is : %f",BMI1);
+                printf("\n                                          You are  : ");
+                if(BMI1>0 && BMI1<=18.5){printf("UNDER WEIGHT");}
+                else if(BMI1>18.5 && BMI1<=24.9){printf("NORMAL WEIGHT");}
+                else if(BMI1>25.0 && BMI1<=29.9){printf("OVER WEIGHT");}
+                else if(BMI1>30.0 && BMI1<=34.9){printf("CLASS I OBESITY");}
+                else if(BMI1>35 && BMI1<=39.9){printf("CLASS II OBESITY");}
+                else {printf("CLASS III OBESITY");}
+                printf("\n                                        Press 'H' = 'Go To Homepage'\n");
+                printf("\n                              Press any other keyword to Exit The Program....\n");
+                printf("\n                                           Enter Your Keyword: ");
+                getchar();
+                a=getchar();
+                if(a=='H'||a=='h')
+                {goto check1;}
+                else
+                {goto No;}
+                break;
+                case (2):
+                printf("\n\n");
+                printf("                                          NOTE : 1 FEET = 12 INCHES");
+                printf("\n                                          Enter Height in Foot : ");
+                scanf("%f",&f);
+                printf("\n                                          Enter Height in Inches: ");
+                scanf("%f",&i);
+                TH=(i+f*12);
+                printf("\n                                          Your Total Height in Inches is : %f",TH);
+                printf("\n                                          NOTE : 1 KG = 2.204 POUNDS");
+                printf("\n                                          Enter Weight in Pounds : ");
+                scanf("%f",&p);
+                BMI2=(((p)/(TH*TH))*703);
+                printf("\n                                          Your BMI INDEX is : %f",BMI2);
+                printf("\n                                          You are  : ");
+                if(BMI2>0 && BMI2<18.5){printf("UNDER WEIGHT");}
+                else if(BMI2>18.5 && BMI2<=24.9){printf("NORMAL WEIGHT");}
+                else if(BMI2>25.0 && BMI2<=29.9){printf("OVER WEIGHT");}
+                else if(BMI2>30.0 && BMI2<=34.9){printf("CLASS I OBESITY");}
+                else if(BMI2>35 && BMI2<=39.9){printf("CLASS II OBESITY");}
+                else {printf("CLASS III OBESITY");}
+                printf("\n                                        Press 'H' = 'Go To Homepage'\n");
+                printf("\n                              Press any other keyword to Exit The Program....\n");
+                printf("\n                                           Enter Your Keyword: ");
+                getchar();
+                a=getchar();
+                if(a=='H'||a=='h')
+                {goto check1;}
+                else
+                {goto No;}
+                break;
+            }
+        }
+        else if (U!=getchar())
 
+        {
+        printf("\n");
+        printf("                                                  !!!ERROR!!!");
+        printf("\n                                               !!!WRONG INPUT!!!");
+        printf("\n                                            SELECT YOUR OPTION AGAIN");
+        printf("\n");
+        goto check3;
+        }
+        break;
         case (3):
         //ACCESS THE LIBRARY FOR SAVED DATA
+
         break;
 
         case (4):
@@ -251,20 +384,21 @@ int main()
         choice = I;
         if(choice=='4')
             {exit(0);}
+        No:exit(0);
         break;
         }
         }
 
-    else if (I=getchar())
+        else if (I!=getchar())
 
         {
-        printf("                                                    !!!ERROR!!!");
-        printf("\n                                                 !!!WRONG INPUT!!!");
-        printf("\n                                              SELECT YOUR OPTION AGAIN");
+        printf("\n");
+        printf("                                                  !!!ERROR!!!");
+        printf("\n                                               !!!WRONG INPUT!!!");
+        printf("\n                                            SELECT YOUR OPTION AGAIN");
+        printf("\n");
         goto check1;
         }
-
     return 0;
 
 }
-
